@@ -32,7 +32,7 @@ function Test2() {
           console.log('danish',currentScroll);
           const newScale = Math.min(1 + currentScroll / 15000, 2); // Adjust divisor to control scale change
           setScale(newScale);
-          const newTop = Math.max(-310+5*currentScroll/10, -310); // Adjust divisor to control top position change
+          const newTop = Math.max(-300+6*currentScroll/10, -300); // Adjust divisor to control top position change
           if(newTop<=0) setTop(newTop);
         //   console.log('danish',newTop);
         if (currentScroll > 750) {
@@ -77,7 +77,7 @@ function Test2() {
           <img src={`${image2}`} style={{ width: '100%',position:'absolute',bottom:0,scale:scale}}/>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} style={{ pointerEvents: 'none', backgroundColor: 'black', overflow: 'hidden',width:'100%',}} sticky={{ start: 1.2, end: 3 }}>
-          <animated.img src={`${image1}`} style={{ width: '100%', position: 'absolute', top:scroll<750?top:image1Spring.top, transform: image1Spring.transform,left:image1Spring.left,scale:scale}} />
+          <animated.img src={`${image1}`} style={{ width: '100%', position: 'absolute', top:scroll<750?top:image1Spring.top, transform: image1Spring.transform,left:image1Spring.left}} />
           <animated.div style={{ opacity: textSpring.opacity, transform: textSpring.transform, position: 'absolute', right: '10%',top: '25%',width:'30%'}}>
              <h2 style={{ fontSize: 40, color: 'white' }}>Animated Text</h2>
              <h2 style={{ fontSize: 20, color: 'white' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.</h2>
