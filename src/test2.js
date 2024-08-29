@@ -1,11 +1,10 @@
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import TextBlock from './textBlock';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { image1 ,image2} from './images/images';
 import { useRef, useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 function Test2() {
     const parallaxRef = useRef(null);
-    const [opacity, setOpacity] = useState(1);
+    // const [opacity, setOpacity] = useState(1);
     const [scale, setScale] = useState(1);
     const [top, setTop] = useState(-300);
     const [scroll, setScroll] = useState(0);
@@ -27,8 +26,8 @@ function Test2() {
         if (parallaxRef.current) {
           const currentScroll = parallaxRef.current.current; // Access the current scroll position
           setScroll(currentScroll);
-          const newOpacity = Math.max(1 - currentScroll / 5000, 0); // Adjust divisor to control opacity change
-          setOpacity(newOpacity);
+        //   const newOpacity = Math.max(1 - currentScroll / 5000, 0); // Adjust divisor to control opacity change
+        //   setOpacity(newOpacity);
           console.log('danish',currentScroll);
           const newScale = Math.min(1 + currentScroll / 15000, 2); // Adjust divisor to control scale change
           setScale(newScale);
@@ -66,7 +65,7 @@ function Test2() {
       parallaxContainer.addEventListener('scroll', handleScroll);
   
       return () => parallaxContainer.removeEventListener('scroll', handleScroll);
-    }, []);
+    });
   return (
     <div style={{ width: '100%', height: '100%', background: '#253237' }}>
       <Parallax ref={parallaxRef} pages={3}>
@@ -74,7 +73,7 @@ function Test2() {
         <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: 'black' }} />
 
         <ParallaxLayer offset={0} speed={2} style={{ pointerEvents: 'none',marginLeft:2}} sticky={{start:0,end:3}}>
-          <img src={`${image2}`} style={{ width: '100%',position:'absolute',bottom:0,scale:scale}}/>
+          <img src={`${image2}`} style={{ width: '100%',position:'absolute',bottom:0,scale:scale}} alt='image-of-factory'/>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} style={{ pointerEvents: 'none', backgroundColor: 'black', overflow: 'hidden',width:'100%',}} sticky={{ start: 1.2, end: 3 }}>
           <animated.img src={`${image1}`} style={{ width: '100%', position: 'absolute', top:scroll<750?top:image1Spring.top, transform: image1Spring.transform,left:image1Spring.left}} />
