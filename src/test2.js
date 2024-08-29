@@ -29,7 +29,7 @@ function Test2() {
           console.log('danish',currentScroll);
           const newScale = Math.min(1 + currentScroll / 15000, 2);
           setScale(newScale);
-          const newTop = Math.max(-300+6*currentScroll/10, -300); 
+          const newTop = Math.max(-300+5*currentScroll/10, -300); 
           if(newTop<=0) setTop(newTop);
         if (currentScroll > 750) {
             setImage1Spring({
