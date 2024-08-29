@@ -24,16 +24,13 @@ function Test2() {
     useEffect(() => {
       const handleScroll = () => {
         if (parallaxRef.current) {
-          const currentScroll = parallaxRef.current.current; // Access the current scroll position
+          const currentScroll = parallaxRef.current.current;
           setScroll(currentScroll);
-        //   const newOpacity = Math.max(1 - currentScroll / 5000, 0); // Adjust divisor to control opacity change
-        //   setOpacity(newOpacity);
           console.log('danish',currentScroll);
-          const newScale = Math.min(1 + currentScroll / 15000, 2); // Adjust divisor to control scale change
+          const newScale = Math.min(1 + currentScroll / 15000, 2);
           setScale(newScale);
-          const newTop = Math.max(-300+6*currentScroll/10, -300); // Adjust divisor to control top position change
+          const newTop = Math.max(-300+6*currentScroll/10, -300); 
           if(newTop<=0) setTop(newTop);
-        //   console.log('danish',newTop);
         if (currentScroll > 750) {
             setImage1Spring({
                 top: '30%',
